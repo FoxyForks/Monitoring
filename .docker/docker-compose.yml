@@ -1,0 +1,29 @@
+version: "3"
+services:
+  monitoring:
+    build:
+      context: ./app
+    volumes:
+      - ./..:/var/www/html
+    ports:
+      - 80:80
+    restart: always
+    networks:
+      - monitoring
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./data/mysql/:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: foo
+      MYSQL_DATABASE: monitoring
+      MYSQL_USER: monitoring
+      MYSQL_PASSWORD: monitoring
+    networks:
+      - monitoring
+
+
+networks:
+  monitoring:
+    driver: bridge
