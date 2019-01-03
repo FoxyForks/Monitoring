@@ -23,6 +23,23 @@ services:
     networks:
       - monitoring
 
+  rabbitmq:
+    build:
+      context: ./rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: monitoring
+      RABBITMQ_DEFAULT_PASS: monitoring
+      RABBITMQ_DEFAULT_VHOST: monitoring
+    networks:
+      - monitoring
+
+  adminer:
+    image: adminer
+    ports:
+      - 81:8080
+    networks:
+      - monitoring
+
 
 networks:
   monitoring:

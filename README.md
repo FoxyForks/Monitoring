@@ -20,6 +20,12 @@ Po naklonování repozitáře je potřeba zkopírovat lokální nastavení neonu
 cp config/config.local.example.neon app/config/config.local.neon 
 ```
 
+Před prvotním spustěním je třeba pustit následující:
+```
+php www/index.php migrations:continue
+php www/index.php rabbitmq:setup-fabric
+```
+
 Příklad konfigurace démona `supervisord` pro běh RabbitMQ consumerů je v `/config/supervisor.conf`.
 
 ## Vývoj ve Vagrantu

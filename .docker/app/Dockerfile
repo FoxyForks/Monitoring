@@ -29,3 +29,13 @@ RUN echo "memory_limit = -1" > /usr/local/etc/php/php.ini
 
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install mysqli
+
+# supervisor installation &&
+# create directory for child images to store configuration in
+RUN apt-get -y install supervisor \
+&&  mkdir -p /var/log/supervisor \
+&&  mkdir -p /etc/supervisor/conf.d
+
+
+COPY entrypoint.sh /usr/local/bin/entrypoint
+CMD ["entrypoint"]

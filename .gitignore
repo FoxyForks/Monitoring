@@ -5,5 +5,10 @@
 
 /output.*
 
+.docker/data/
+supervisord.log
+supervisord.pid
+
+
 !.gitignore
 !.htaccess
