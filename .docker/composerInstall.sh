@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 rm -rf ../vendor
 
-docker exec -t preklad_app \
-	composer install
+docker-compose exec monitoring \
+    composer install
 
 
