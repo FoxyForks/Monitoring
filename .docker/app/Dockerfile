@@ -37,5 +37,11 @@ RUN apt-get -y install supervisor \
 &&  mkdir -p /etc/supervisor/conf.d
 
 
+RUN apt-get update \
+&&  apt-get -y install -qq --force-yes cron htop sudo nano
+
+COPY cron /etc/crontab
+
+
 COPY entrypoint.sh /usr/local/bin/entrypoint
 CMD ["entrypoint"]

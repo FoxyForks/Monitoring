@@ -1,0 +1,17 @@
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# m h dom mon dow user	command
+# Monitoring
+* *     * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:alive-checks
+*/15 *  * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:dns-checks
+0 */6   * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:certificate-checks
+*/30 *  * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:feed-checks
+*/15 *  * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:rabbit-consumer-checks
+* *     * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:slack-check-statuses
