@@ -1,0 +1,49 @@
+parameters:
+	APP_ADMINISTRATOR_TEAM_ID: ""
+	APP_CONSOLE_URL: ""
+	APP_DBAL_CONNECTION_TZ: ""
+	APP_DBAL_DATABASE: ""
+	APP_DBAL_HOST: ""
+	APP_DBAL_PASSWORD: ""
+	APP_DBAL_USERNAME: ""
+	APP_GITHUB_APP_ID: ""
+	APP_GITHUB_APP_SECRET: ""
+	APP_RABBITMQ_HOST: ""
+	APP_RABBITMQ_PASSWORD: ""
+	APP_RABBITMQ_PORT: ""
+	APP_RABBITMQ_USER: ""
+	APP_RABBITMQ_VHOST: ""
+	APP_SLACK_HOOK_URL: ""
+
+	administratorTeamId: %APP_ADMINISTRATOR_TEAM_ID% # id skupiny uživatelů na GitHubu, kteří budou mít admin přístup
+	slack:
+		hookUrl: %APP_SLACK_HOOK_URL% # URL hooku pro notifikování do Slacku
+
+github:
+	appId: %APP_GITHUB_APP_ID% # aplikace pro přihlášení uživatelů a práci s GitHubem
+	appSecret: %APP_GITHUB_APP_SECRET%
+
+
+dbal:
+	driver: mysqli
+	host: %APP_DBAL_HOST%
+	username: %APP_DBAL_USERNAME%
+	password: %APP_DBAL_PASSWORD%
+	database: %APP_DBAL_DATABASE%
+	connectionTz: %APP_DBAL_CONNECTION_TZ%
+
+
+rabbitmq:
+	connection:
+		host: %APP_RABBITMQ_HOST%
+		port: %APP_RABBITMQ_PORT%
+		user: %APP_RABBITMQ_USER%
+		password: %APP_RABBITMQ_PASSWORD%
+		vhost: %APP_RABBITMQ_VHOST%
+
+
+console:
+	url: %APP_CONSOLE_URL%
+
+
+

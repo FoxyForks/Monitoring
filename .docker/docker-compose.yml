@@ -8,6 +8,22 @@ services:
     ports:
       - 80:80
     restart: always
+    environment:
+      APP_ADMINISTRATOR_TEAM_ID: "22105"
+      APP_CONSOLE_URL: "http://monitoring.v.peckadesign.com"
+      APP_DBAL_CONNECTION_TZ: "+02:00"
+      APP_DBAL_DATABASE: "monitoring"
+      APP_DBAL_HOST: "db"
+      APP_DBAL_PASSWORD: "monitoring"
+      APP_DBAL_USERNAME: "monitoring"
+      APP_GITHUB_APP_ID: "Iv1.3846d354aa7dfcd8"
+      APP_GITHUB_APP_SECRET: "87f4639638c8fcaeabf3751c2da0837678061fb1"
+      APP_RABBITMQ_HOST: "rabbitmq"
+      APP_RABBITMQ_PASSWORD: "monitoring"
+      APP_RABBITMQ_PORT: "5672"
+      APP_RABBITMQ_USER: "monitoring"
+      APP_RABBITMQ_VHOST: "monitoring"
+      APP_SLACK_HOOK_URL: ""
     networks:
       - monitoring
 
