@@ -40,7 +40,12 @@ RUN apt-get -y install supervisor \
 RUN apt-get update \
 &&  apt-get -y install -qq --force-yes cron htop sudo nano
 
-COPY cron /etc/crontab
+COPY cron /etc/cron.d/cron
+RUN rm -Rf /etc/cron.daily  && \
+    rm -Rf /etc/cron.weekly && \
+    rm -Rf /etc/cron.monthly && \
+    rm -Rf /etc/cron.hourly && \
+    chmod a+x /etc/cron.d/cron
 
 
 COPY entrypoint.sh /usr/local/bin/entrypoint
