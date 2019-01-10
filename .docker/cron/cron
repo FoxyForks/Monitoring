@@ -1,4 +1,4 @@
-# m h dom mon dow user	command
+# m h dom mon dow user      command
 # Monitoring
 * *     * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:alive-checks
 */15 *  * * *   www-data    php /var/www/html/www/index.php pd:monitoring:check:publish:dns-checks

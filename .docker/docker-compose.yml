@@ -1,6 +1,6 @@
 version: "3"
 services:
-  monitoring:
+  app:
     build:
       context: ./app
     volumes:
@@ -10,7 +10,7 @@ services:
     restart: always
     environment:
       APP_ADMINISTRATOR_TEAM_ID: "22105"
-      APP_CONSOLE_URL: "http://monitoring.v.peckadesign.com"
+      APP_CONSOLE_URL: "http://web.monitoring.sunfox.localhost/"
       APP_DBAL_CONNECTION_TZ: "+02:00"
       APP_DBAL_DATABASE: "monitoring"
       APP_DBAL_HOST: "db"
@@ -24,6 +24,15 @@ services:
       APP_RABBITMQ_USER: "monitoring"
       APP_RABBITMQ_VHOST: "monitoring"
       APP_SLACK_HOOK_URL: ""
+    networks:
+      - monitoring
+
+  cron:
+    build:
+      context: ./cron
+    volumes:
+      - ./..:/var/www/html
+    restart: always
     networks:
       - monitoring
 
